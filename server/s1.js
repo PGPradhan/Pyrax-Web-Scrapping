@@ -13,37 +13,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 
 
-// app.get("/product" , (req,res) => {
-//     axios({
-//         url: "https://mamaearth.in/product/mamaearth-onion-shampoo-for-hair-growth-hair-fall-control-with-onion-oil-plant-keratin-250-ml",
-//         method: "get",
-//     })
-//     .then(response => {
-//         const html = response.data;
-//         const $ = cheerio.load(html);
-//         const mam_img = $(".image-gallery-image img").attr();
-//         const mam_name =$(".eLjxvm").text();
-//         const mam_price =$(".price").text();
-//         const pat_img = $(".figure-hover-overlay").attr();
-//         console.log(pat_img);
-        
-//         res.status(200);
-
-//         res.json([{
-//             "id" : 1,
-//             "name": "MamaEarth",
-//             "products1": mam_img.src,
-//             "products2" : mam_name,
-//             "products3" : mam_price.slice(1,4),  
-//             }
-//         ]);
-        
-        
-//     }).catch((err) => {
-//         res.status(500).json({ message: err });
-//     });
-// } )
-
 app.get('/product', (req, res) => {
     axios.all([
         axios.get('https://mamaearth.in/product/mamaearth-onion-shampoo-for-hair-growth-hair-fall-control-with-onion-oil-plant-keratin-250-ml'),
